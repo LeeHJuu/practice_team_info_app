@@ -36,6 +36,13 @@ class MemberPagePce extends StatelessWidget {
                         duration: const Duration(milliseconds: 100),
                         curve: Curves.easeInOut,
                       );
+                    } else {
+                      nextPage = 0;
+                      _pageController.animateToPage(
+                        nextPage,
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeInOut,
+                      );
                     }
                   },
                   child: Column(
@@ -95,11 +102,20 @@ class MemberPagePce extends StatelessWidget {
   Widget FirstScreen() {
     return SizedBox.expand(
       child: Container(
-        color: const Color.fromARGB(255, 113, 43, 116),
-        child: const Center(
-          child: Text(
-            'Page index : 0',
-            style: TextStyle(fontSize: 20),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/pce1.jpg'), fit: BoxFit.cover),
+        ),
+        child: Center(
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(0, 350, 0, 0),
+            child: const Text(
+              "잼민이 시바견을 키우고있습니다",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),
