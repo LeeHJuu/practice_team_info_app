@@ -109,8 +109,7 @@ class MemberPageLhj extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
-                  "https://mir-s3-cdn-cf.behance.net/projects/404/54ed5829649575.55fcf076e31d0.jpg"),
+              Image.asset("assets/images/lhj2.jpg"),
               const Text(
                 "사실 저는 잠만보입니다",
                 style: TextStyle(
@@ -137,8 +136,7 @@ class MemberPageLhj extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.network(
-                  "https://i.pinimg.com/236x/a4/88/6e/a4886e4cde1362ab0bcd4512b4227141.jpg"),
+              Image.asset("assets/images/lhj3.jpg"),
               const Text(
                 "또, 저는 메타몽입니다",
                 style: TextStyle(
@@ -169,8 +167,8 @@ class MemberPageLhj extends StatelessWidget {
         child: Stack(
           fit: StackFit.expand,
           children: [
-            Image.network(
-              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPiCrKSPaXJGt1DduxqO3IQ8tDoWF-zP1F0w&s",
+            Image.asset(
+              "assets/images/lhj4.jpg",
               fit: BoxFit.fill,
             ),
             Container(
