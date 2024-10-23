@@ -13,10 +13,6 @@ class MemberPageLhj extends StatelessWidget {
       SecondScreen(),
       ThirdScreen(),
       FourthScreen(),
-      FirstScreen(),
-      SecondScreen(),
-      ThirdScreen(),
-      FourthScreen(),
     ]);
   }
 
@@ -35,6 +31,14 @@ class MemberPageLhj extends StatelessWidget {
                   onTap: () {
                     int nextPage = _pageController.page!.toInt() + 1;
                     if (nextPage < myInfoPages.length) {
+                      _pageController.animateToPage(
+                        nextPage,
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeInOut,
+                      );
+                    }
+                    else {
+                      nextPage = 0;
                       _pageController.animateToPage(
                         nextPage,
                         duration: const Duration(milliseconds: 100),
@@ -74,18 +78,20 @@ class MemberPageLhj extends StatelessWidget {
                       const Text(
                         // Todo:: 멤버 인덱스 받아 이름 자동화 하기
                         "이현주",
-                        style: TextStyle(color: Colors.white, fontSize: 24),
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                            fontSize: 24),
                       )
                     ],
                   )),
               Positioned(
-                top: 30,
-                left: 35,
+                  top: 30,
+                  left: 35,
                   child: GestureDetector(
-                onTap: () => Get.back(),
-                child: const Text('X',
-                    style: TextStyle(color: Colors.white, fontSize: 24)),
-              )),
+                    onTap: () => Get.back(),
+                    child: const Text('X',
+                        style: TextStyle(color: Colors.white, fontSize: 24)),
+                  )),
             ],
           )),
         );
@@ -99,28 +105,60 @@ class MemberPageLhj extends StatelessWidget {
   Widget FirstScreen() {
     return SizedBox.expand(
       child: Container(
-        color: const Color.fromARGB(255, 113, 43, 116),
-        child: const Center(
-          child: Text(
-            'Page index : 00',
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
-      ),
+          color: const Color.fromARGB(255, 158, 197, 151),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.network(
+                  "https://mir-s3-cdn-cf.behance.net/projects/404/54ed5829649575.55fcf076e31d0.jpg"),
+              const Text(
+                "사실 저는 잠만보입니다",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold),
+              ),
+              Container(
+                padding: const EdgeInsets.all(15),
+                child: const Text(
+                  "하루에 12시간 자야해요.. 하지만 현실을 살아가기엔 어쩔 수 없이 타협해야 하는 수면시간 ㅠ",
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+              ),
+            ],
+          )),
     );
   }
 
   Widget SecondScreen() {
     return SizedBox.expand(
       child: Container(
-        color: Colors.blue,
-        child: const Center(
-          child: Text(
-            'Page index : 01',
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
-      ),
+          color: const Color.fromARGB(255, 255, 255, 255),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.network(
+                  "https://i.pinimg.com/236x/a4/88/6e/a4886e4cde1362ab0bcd4512b4227141.jpg"),
+              const Text(
+                "또, 저는 메타몽입니다",
+                style: TextStyle(
+                    color: Color.fromARGB(255, 158, 103, 158),
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold),
+              ),
+              Container(
+                padding: const EdgeInsets.all(15),
+                child: const Text(
+                  "친구가 저는 잠만보보다는\n메타몽을 닮았대요.\n\n귀여워서 맘에들어요.",
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 158, 103, 158),
+                    fontSize: 20,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ],
+          )),
     );
   }
 
@@ -128,11 +166,41 @@ class MemberPageLhj extends StatelessWidget {
     return SizedBox.expand(
       child: Container(
         color: const Color.fromARGB(255, 92, 156, 49),
-        child: const Center(
-          child: Text(
-            'Page index : 02',
-            style: TextStyle(fontSize: 20),
-          ),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.network(
+              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPiCrKSPaXJGt1DduxqO3IQ8tDoWF-zP1F0w&s",
+              fit: BoxFit.fill,
+            ),
+            Container(
+                color: const Color.fromRGBO(0, 0, 0, 0.281),
+                // alignment: Alignment.center,
+                padding: const EdgeInsets.all(30),
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 70,),
+                    Text(
+                      "굉장해 나 굉장한 메타몽이야!!",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 40),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 10,),
+                    Text(
+                      "메타몽은 이것도 되고 저것도 되니까 어떻게 보면 올라운더라고 볼 수도 있지 않나요?\n훌륭한 메타몽이 되어보겟습니다",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                )),
+          ],
         ),
       ),
     );
@@ -141,11 +209,12 @@ class MemberPageLhj extends StatelessWidget {
   Widget FourthScreen() {
     return SizedBox.expand(
       child: Container(
-        color: const Color.fromARGB(255, 243, 100, 33),
+        color: const Color.fromARGB(255, 126, 126, 126),
         child: const Center(
           child: Text(
-            'Page index : 03',
+            '끝.\n한번 더 누르면 처음으로 돌아가욤',
             style: TextStyle(fontSize: 20),
+            textAlign: TextAlign.center,
           ),
         ),
       ),
