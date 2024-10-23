@@ -12,7 +12,6 @@ class MemberPagePjw extends StatelessWidget {
       FirstScreen(),
       SecondScreen(),
       ThirdScreen(),
-      FourthScreen(),
     ]);
   }
 
@@ -27,17 +26,33 @@ class MemberPagePjw extends StatelessWidget {
           body: SafeArea(
               child: Stack(
             children: [
+
               GestureDetector(
-                  onTap: () {
-                    int nextPage = _pageController.page!.toInt() + 1;
-                    if (nextPage < myInfoPages.length) {
-                      _pageController.animateToPage(
-                        nextPage,
-                        duration: const Duration(milliseconds: 100),
-                        curve: Curves.easeInOut,
-                      );
+                  onTapUp: (details) {
+                    if (details.localPosition.dx > (constraints.maxWidth/2)){
+                      int nextPage = _pageController.page!.toInt() + 1;
+                      if (nextPage < myInfoPages.length) {
+                        _pageController.animateToPage(
+                          nextPage,
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.easeInOut,
+                        );
+                      }
                     }
+                    if (details.localPosition.dx < (constraints.maxWidth/2)){
+                      int nextPage = _pageController.page!.toInt() - 1;
+                      if (nextPage < myInfoPages.length) {
+                        _pageController.animateToPage(
+                          nextPage,
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.easeInOut,
+                        );
+                      }
+                    }
+
+
                   },
+
                   child: Column(
                     children: [
                       Container(
@@ -55,6 +70,7 @@ class MemberPagePjw extends StatelessWidget {
                           ),
                         ),
                       ),
+
                       SmoothPageIndicator(
                         controller: _pageController, // PageController
                         count: myInfoPages.length,
@@ -95,12 +111,88 @@ class MemberPagePjw extends StatelessWidget {
   Widget FirstScreen() {
     return SizedBox.expand(
       child: Container(
-        color: const Color.fromARGB(255, 113, 43, 116),
-        child: const Center(
-          child: Text(
-            'Page index : 0',
-            style: TextStyle(fontSize: 20),
-          ),
+        color: const Color(0xff5C786E),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+
+            const Flexible(
+              child: Text(
+                "스몰 e의 시큼한 대학교 화석", 
+                style: TextStyle(
+                  color: Color(0xff553F33),
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ),
+
+             Flexible(
+              child: Container(
+                padding: const EdgeInsets.only(
+                  top: 30,
+                  right: 20,
+                  left: 20),
+                child: const Text(
+                  ": 나에대한 3가지",
+                  style: TextStyle(
+                    color: Color(0xff553F33),
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold
+                  ),
+                )
+              )
+            ),
+
+            Flexible(
+              child: Container(
+                padding: const EdgeInsets.only(
+                  top: 30,
+                  right: 20,
+                  left: 20),
+                child: const Text(
+                  "1. 여행과 수영이라면 이번 프로젝트도 스무스~ 같이 수영하러 갈래요?",
+                  style: TextStyle(
+                    color: Color(0xff553F33),
+                    fontSize: 20,
+                  ),
+                )
+              )
+            ),
+
+            Flexible(
+              child: Container(
+                padding: const EdgeInsets.only(
+                  top: 30,
+                  right: 20,
+                  left: 20),
+                child: const Text(
+                  "2.부산 사람이라 그런지 바다를 많이 닮았다고 들었습니다",
+                  style: TextStyle(
+                    color: Color(0xff553F33),
+                    fontSize: 20,
+                  ),
+                )
+              )
+            ),
+
+            Flexible(
+              child: Container(
+                padding: const EdgeInsets.only(
+                  top: 30,
+                  right: 20,
+                  left: 20),
+                child: const Text(
+                  "3. 제일 좋아하는 음식은 산딸기.. 맛있어.. 상큼한게 최고야",
+                  style: TextStyle(
+                    color: Color(0xff553F33),
+                    fontSize: 20,
+                  ),
+                )
+              )
+            ),
+
+          ],
         ),
       ),
     );
@@ -109,42 +201,26 @@ class MemberPagePjw extends StatelessWidget {
   Widget SecondScreen() {
     return SizedBox.expand(
       child: Container(
-        color: Colors.blue,
-        child: const Center(
-          child: Text(
-            'Page index : 1',
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget ThirdScreen() {
-    return SizedBox.expand(
-      child: Container(
-        color: const Color.fromARGB(255, 92, 156, 49),
-        child: const Center(
-          child: Text(
-            'Page index : 2',
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget FourthScreen() {
-    return SizedBox.expand(
-      child: Container(
-        color: const Color.fromARGB(255, 243, 100, 33),
-        child: const Center(
-          child: Text(
-            'Page index : 3',
-            style: TextStyle(fontSize: 20),
-          ),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/JWPswim.jpg'),
+            fit: BoxFit.cover,
+          )
         ),
       ),
     );
   }
 }
+
+  Widget ThirdScreen() {
+    return SizedBox.expand(
+      child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/JWPAB.jpg'),
+            fit: BoxFit.cover,
+          )
+        ),
+      ),
+    );
+  }
