@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.6.6
   smooth_page_indicator: ^1.2.0+3
+  loop_page_view: ^1.2.5
 
 dev_dependencies:
   flutter_test:

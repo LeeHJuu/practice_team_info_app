@@ -6,6 +6,7 @@ import 'package:flutter_test_api/member_page_lhj.dart';
 import 'package:flutter_test_api/member_page_pce.dart';
 import 'package:flutter_test_api/member_page_pjw.dart';
 import 'package:get/get.dart';
+import 'package:loop_page_view/loop_page_view.dart';
 
 class ShowingInfoPages extends StatefulWidget {
   ShowingInfoPages({super.key});
@@ -23,36 +24,32 @@ class _ShowingInfoPagesState extends State<ShowingInfoPages> {
     super.initState();
 
     memberController = Get.find();
-    memberpageController =
-        PageController(initialPage: memberController.memberindex);
+    // memberpageController =
+    //     PageController(initialPage: memberController.memberindex);
   }
+
+  List<Widget> memberPages = [
+    MemberPageLhj(),
+    MemberPageKsh(),
+    MemberPagePjw(),
+    MemberPagePce(),
+    MemberPageHsj(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
-        // child: GestureDetector(
-        //   onPanEnd: _nextMemberPage,
-        //   child: MemberPageLhj(),
-        // )
-        child: PageView(
-          controller: memberpageController,
-          children: [
-            MemberPageLhj(),
-            MemberPageKsh(),
-            MemberPagePjw(),
-            MemberPagePce(),
-            MemberPageHsj(),
-          ],
+        child: LoopPageView.builder(
+          controller:
+              LoopPageController(initialPage: memberController.memberindex),
+          itemCount: memberPages.length,
+          itemBuilder: (_, index) {
+            return memberPages[index];
+          },
         ),
       ),
     );
   }
-
-  /*
-  void _nextMemberPage(DragEndDetails details) {
-    Get.to(ShowingInfoPages());
-  }
-  */
 }
