@@ -7,10 +7,25 @@ import 'package:flutter_test_api/member_page_pce.dart';
 import 'package:flutter_test_api/member_page_pjw.dart';
 import 'package:get/get.dart';
 
-class ShowingInfoPages extends StatelessWidget {
+class ShowingInfoPages extends StatefulWidget {
   ShowingInfoPages({super.key});
 
-  final MemberController memberController = Get.find();
+  @override
+  State<ShowingInfoPages> createState() => _ShowingInfoPagesState();
+}
+
+class _ShowingInfoPagesState extends State<ShowingInfoPages> {
+  late final MemberController memberController;
+  late final PageController memberpageController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    memberController = Get.find();
+    memberpageController =
+        PageController(initialPage: memberController.memberindex);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,20 +37,22 @@ class ShowingInfoPages extends StatelessWidget {
         //   child: MemberPageLhj(),
         // )
         child: PageView(
+          controller: memberpageController,
           children: [
             MemberPageLhj(),
-            MemberPageHsj(),
             MemberPageKsh(),
-            MemberPagePce(),
             MemberPagePjw(),
+            MemberPagePce(),
+            MemberPageHsj(),
           ],
         ),
       ),
     );
   }
 
-
+  /*
   void _nextMemberPage(DragEndDetails details) {
     Get.to(ShowingInfoPages());
   }
+  */
 }

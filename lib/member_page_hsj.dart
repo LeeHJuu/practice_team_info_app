@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -7,13 +8,15 @@ class MemberPageHsj extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // check:: 여기에 보여줄 페이지들 목록 집어넣기.
-    return _infoPageWidget([
+    List<Widget> pagelist = [
       FirstScreen(),
       SecondScreen(),
       ThirdScreen(),
       FourthScreen(),
-    ]);
+    ];
+
+    // check:: 여기에 보여줄 페이지들 목록 집어넣기.
+    return _infoPageWidget(pagelist);
   }
 
   final PageController _pageController = PageController();
@@ -31,6 +34,14 @@ class MemberPageHsj extends StatelessWidget {
                   onTap: () {
                     int nextPage = _pageController.page!.toInt() + 1;
                     if (nextPage < myInfoPages.length) {
+                      _pageController.animateToPage(
+                        nextPage,
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeInOut,
+                      );
+                    }
+                    else {
+                      nextPage = 0;
                       _pageController.animateToPage(
                         nextPage,
                         duration: const Duration(milliseconds: 100),
@@ -75,13 +86,13 @@ class MemberPageHsj extends StatelessWidget {
                     ],
                   )),
               Positioned(
-                top: 30,
-                left: 35,
+                  top: 30,
+                  left: 35,
                   child: GestureDetector(
-                onTap: () => Get.back(),
-                child: const Text('X',
-                    style: TextStyle(color: Colors.white, fontSize: 24)),
-              )),
+                    onTap: () => Get.back(),
+                    child: const Text('X',
+                        style: TextStyle(color: Colors.white, fontSize: 24)),
+                  )),
             ],
           )),
         );
