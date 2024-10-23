@@ -209,13 +209,47 @@ class MemberPageLhj extends StatelessWidget {
   Widget FourthScreen() {
     return SizedBox.expand(
       child: Container(
-        color: const Color.fromARGB(255, 126, 126, 126),
-        child: const Center(
-          child: Text(
-            '끝.\n한번 더 누르면 처음으로 돌아가욤',
-            style: TextStyle(fontSize: 20),
-            textAlign: TextAlign.center,
-          ),
+        color: const Color.fromARGB(255, 92, 156, 49),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.asset('assets/images/lhj1.jpg', fit: BoxFit.cover,),
+            Container(
+                color: const Color.fromRGBO(0, 0, 0, 0.281),
+                // alignment: Alignment.center,
+                padding: const EdgeInsets.all(30),
+                child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 100),
+                    Text(
+                      "그럼 제가 선배 맘에",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 250,),
+                    Text(
+                      "탕!!!!",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 80,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    Text(
+                      "제법 잘 쐈죠?\n다음엔 더 잘 쏴볼게요\n\n-END-",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                )),
+          ],
         ),
       ),
     );
