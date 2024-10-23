@@ -26,7 +26,6 @@ class _ShowingInfoPagesState extends State<ShowingInfoPages> {
     memberController = Get.find();
     // memberpageController =
     //     PageController(initialPage: memberController.memberindex);
-
   }
 
   List<Widget> memberPages = [
@@ -43,16 +42,13 @@ class _ShowingInfoPagesState extends State<ShowingInfoPages> {
       backgroundColor: Colors.black,
       body: SafeArea(
         child: LoopPageView.builder(
-          controller: LoopPageController(initialPage: memberController.memberindex),
-            itemCount: memberPages.length,
-            itemBuilder: (_, index) {
-              return Card(
-                child: Center(
-                  child: memberPages[index],
-                ),
-              );
-            },
-          ),
+          controller:
+              LoopPageController(initialPage: memberController.memberindex),
+          itemCount: memberPages.length,
+          itemBuilder: (_, index) {
+            return memberPages[index];
+          },
+        ),
       ),
     );
   }
