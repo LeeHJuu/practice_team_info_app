@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_api/member_controller.dart';
+import 'package:flutter_test_api/membermodel.dart';
 import 'package:flutter_test_api/showing_info_pages.dart';
 import 'package:get/get.dart';
 
@@ -8,13 +9,14 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 이미지, 데이터 넣기
-    List<AssetImage>? thumbnailimgs = [];
-    List<String>? names = ['이현주', '고성훈', '박정우', '박채은', '황상진'];
 
-    // 이미지, 이름 초기화 함수
-    thumbnailimgs = _initThumbnailimg(thumbnailimgs);
-    names = _initNames(names);
+    List<Membermodel> members = [
+      Membermodel(name: '이현주', thumbnailimg: AssetImage('assets/images/default.png')),
+      Membermodel(name: '고성훈', thumbnailimg: AssetImage('assets/images/default.png')),
+      Membermodel(name: '박정우', thumbnailimg: AssetImage('assets/images/default.png')),
+      Membermodel(name: '박채은', thumbnailimg: AssetImage('assets/images/default.png')),
+      Membermodel(name: '황상진', thumbnailimg: AssetImage('assets/images/bluebird.png')),
+    ];
 
     return Scaffold(
       body: SafeArea(
@@ -45,7 +47,7 @@ class Home extends StatelessWidget {
                 height: 20,
               ),
               Expanded(
-                child: _contentsitems(thumbnailimgs, names),
+                child: _contentsitems(members),
               ),
             ],
           ),
@@ -55,7 +57,7 @@ class Home extends StatelessWidget {
   }
 }
 
-Widget _contentsitems(List<AssetImage> images, List<String> names) {
+Widget _contentsitems(List<Membermodel> members) {
   return GridView.builder(
     padding: const EdgeInsetsDirectional.symmetric(horizontal: 8),
     physics: const NeverScrollableScrollPhysics(),
@@ -79,7 +81,7 @@ Widget _contentsitems(List<AssetImage> images, List<String> names) {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: images[index],
+                    image: members[index].thumbnailimg,
                     fit: BoxFit.cover,
                   ),
                   color: Colors.black,
@@ -92,7 +94,7 @@ Widget _contentsitems(List<AssetImage> images, List<String> names) {
             height: 5,
           ),
           Text(
-            names[index],
+            members[index].name,
             style: const TextStyle(
               fontSize: 16,
             ),
@@ -101,18 +103,4 @@ Widget _contentsitems(List<AssetImage> images, List<String> names) {
       );
     },
   );
-}
-
-List<AssetImage> _initThumbnailimg(List<AssetImage> m) {
-  while (m.length < 5) {
-    m.add(const AssetImage('assets/images/default.png'));
-  }
-  return m;
-}
-
-List<String> _initNames(List<String> n) {
-  while (n.length < 5) {
-    n.add('홍길동');
-  }
-  return n;
 }
