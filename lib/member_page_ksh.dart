@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -7,13 +8,15 @@ class MemberPageKsh extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // check:: 여기에 보여줄 페이지들 목록 집어넣기.
-    return _infoPageWidget([
+    List<Widget> pagelist = [
       FirstScreen(),
       SecondScreen(),
       ThirdScreen(),
       FourthScreen(),
-    ]);
+    ];
+
+    // check:: 여기에 보여줄 페이지들 목록 집어넣기.
+    return _infoPageWidget(pagelist);
   }
 
   final PageController _pageController = PageController();
@@ -31,6 +34,14 @@ class MemberPageKsh extends StatelessWidget {
                   onTap: () {
                     int nextPage = _pageController.page!.toInt() + 1;
                     if (nextPage < myInfoPages.length) {
+                      _pageController.animateToPage(
+                        nextPage,
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeInOut,
+                      );
+                    }
+                    else {
+                      nextPage = 0;
                       _pageController.animateToPage(
                         nextPage,
                         duration: const Duration(milliseconds: 100),
@@ -95,12 +106,23 @@ class MemberPageKsh extends StatelessWidget {
   Widget FirstScreen() {
     return SizedBox.expand(
       child: Container(
-        color: const Color.fromARGB(255, 113, 43, 116),
-        child: const Center(
-          child: Text(
-            'Page index : 0',
-            style: TextStyle(fontSize: 20),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/ksh1.jpg'), // 배경 이미지 경로
+            fit: BoxFit.cover, // 이미지 크기 조정 방식
           ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end, // 세로축에서 아래쪽에 정렬
+          children: const [
+            Padding(
+              padding: EdgeInsets.only(bottom: 200), // 아래에 여백 추가
+              child: Text(
+                '1조 고성훈을 소개합니다.',
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -109,12 +131,23 @@ class MemberPageKsh extends StatelessWidget {
   Widget SecondScreen() {
     return SizedBox.expand(
       child: Container(
-        color: Colors.blue,
-        child: const Center(
-          child: Text(
-            'Page index : 1',
-            style: TextStyle(fontSize: 20),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/ksh2.jpg'), // 배경 이미지 경로
+            fit: BoxFit.cover, // 이미지 크기 조정 방식
           ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end, // 세로축에서 아래쪽에 정렬
+          children: const [
+            Padding(
+              padding: EdgeInsets.only(bottom: 200), // 아래에 여백 추가
+              child: Text(
+                '나이 : 꽃을 좋아하는 나이;;',
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -123,12 +156,23 @@ class MemberPageKsh extends StatelessWidget {
   Widget ThirdScreen() {
     return SizedBox.expand(
       child: Container(
-        color: const Color.fromARGB(255, 92, 156, 49),
-        child: const Center(
-          child: Text(
-            'Page index : 2',
-            style: TextStyle(fontSize: 20),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/ksh3.jpg'), // 배경 이미지 경로
+            fit: BoxFit.cover, // 이미지 크기 조정 방식
           ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end, // 세로축에서 아래쪽에 정렬
+          children: const [
+            Padding(
+              padding: EdgeInsets.only(bottom: 200), // 아래에 여백 추가
+              child: Text(
+                '취미 : 공원 산책을 좋아해요.',
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -137,12 +181,23 @@ class MemberPageKsh extends StatelessWidget {
   Widget FourthScreen() {
     return SizedBox.expand(
       child: Container(
-        color: const Color.fromARGB(255, 243, 100, 33),
-        child: const Center(
-          child: Text(
-            'Page index : 3',
-            style: TextStyle(fontSize: 20),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/ksh4.jpg'), // 배경 이미지 경로
+            fit: BoxFit.cover, // 이미지 크기 조정 방식
           ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end, // 세로축에서 아래쪽에 정렬
+          children: const [
+            Padding(
+              padding: EdgeInsets.only(bottom: 200), // 아래에 여백 추가
+              child: Text(
+                '앞으로의 계획 : 쉬엄쉬엄 천천히 가자!!',
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ),
+          ],
         ),
       ),
     );
