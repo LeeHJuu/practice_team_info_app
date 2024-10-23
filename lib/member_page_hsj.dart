@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test_api/musicmodel.dart';
-import 'package:flutter_test_api/requsetmodel.dart';
+import 'package:flutter_test_api/requestmodel.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
