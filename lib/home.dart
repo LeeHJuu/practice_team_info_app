@@ -11,7 +11,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
 
     List<Membermodel> members = [
-      Membermodel(name: '이현주', thumbnailimg: AssetImage('assets/images/default.png')),
+      Membermodel(name: '이현주', thumbnailimg: AssetImage('assets/images/lhj3.jpg')),
       Membermodel(name: '고성훈', thumbnailimg: AssetImage('assets/images/default.png')),
       Membermodel(name: '박정우', thumbnailimg: AssetImage('assets/images/default.png')),
       Membermodel(name: '박채은', thumbnailimg: AssetImage('assets/images/default.png')),
