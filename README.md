@@ -1,5 +1,5 @@
 # Project Practice Team Info App
-# 우리가누군줄 아니
+# 헤이 모두들 안녕 우리가 누군지 아니
 
  For the given flutter development bootcamp opportunity. we gathered up as a team to show who we are by starting with showing coding styles and comprehensibility of each other. This project conveys individual self-introduction as a flutter app.
 
