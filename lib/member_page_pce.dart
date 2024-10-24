@@ -110,9 +110,9 @@ class MemberPagePce extends StatelessWidget {
           child: Container(
             margin: const EdgeInsets.fromLTRB(0, 350, 0, 0),
             child: const Text(
-              "잼민이 시바견을 키우고있습니다",
+              "잼민이 시바견을 키우고있어요",
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 25,
                   fontWeight: FontWeight.bold),
             ),
@@ -124,40 +124,80 @@ class MemberPagePce extends StatelessWidget {
 
   Widget SecondScreen() {
     return SizedBox.expand(
-      child: Container(
-        color: Colors.blue,
-        child: const Center(
-          child: Text(
-            'Page index : 1',
-            style: TextStyle(fontSize: 20),
-          ),
-        ),
+        child: Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/images/pce2.jpg'), fit: BoxFit.cover),
       ),
-    );
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text(
+            '강아지랑 산책을 자주해요',
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                backgroundColor: Color.fromARGB(255, 255, 255, 255)),
+          ),
+          Text(
+            '하네스 이뻐서 샀는데...',
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                backgroundColor: Color.fromARGB(255, 255, 255, 255)),
+          ),
+          Text(
+            '환경미화원 같다는 말 많이 들어요ㅠㅠ',
+            style: TextStyle(
+                color: Colors.black,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                backgroundColor: Color.fromARGB(255, 255, 255, 255)),
+          ),
+        ],
+      ),
+    ));
   }
 
   Widget ThirdScreen() {
     return SizedBox.expand(
-      child: Container(
-        color: const Color.fromARGB(255, 92, 156, 49),
-        child: const Center(
-          child: Text(
-            'Page index : 2',
-            style: TextStyle(fontSize: 20),
+        child: Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/images/pce3.jpg'), fit: BoxFit.cover),
+      ),
+      child: Center(
+        child: Container(
+          margin: const EdgeInsets.fromLTRB(350, 0, 0, 350),
+          child: const Text(
+            '저는 겨울을 좋아하는 집순이',
+            style: TextStyle(
+                color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
       ),
-    );
+    ));
   }
 
   Widget FourthScreen() {
     return SizedBox.expand(
       child: Container(
-        color: const Color.fromARGB(255, 243, 100, 33),
-        child: const Center(
-          child: Text(
-            'Page index : 3',
-            style: TextStyle(fontSize: 20),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage('assets/images/pce5.jpg'), fit: BoxFit.cover),
+        ),
+        child: Center(
+          child: Container(
+            margin: const EdgeInsets.fromLTRB(0, 700, 0, 0),
+            child: const Text(
+              'ISTJ에서 INTP으로 최근에 바꼈어요',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold),
+            ),
           ),
         ),
       ),
