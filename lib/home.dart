@@ -9,13 +9,17 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     List<Membermodel> members = [
-      Membermodel(name: '이현주', thumbnailimg: AssetImage('assets/images/lhj3.jpg')),
-      Membermodel(name: '고성훈', thumbnailimg: AssetImage('assets/images/ksh3.jpg')),
-      Membermodel(name: '박정우', thumbnailimg: AssetImage('assets/images/JWPtravel.jpg')),
-      Membermodel(name: '박채은', thumbnailimg: AssetImage('assets/images/default.png')),
-      Membermodel(name: '황상진', thumbnailimg: AssetImage('assets/images/bluebird.png')),
+      Membermodel(
+          name: '이현주', thumbnailimg: AssetImage('assets/images/lhj3.jpg')),
+      Membermodel(
+          name: '고성훈', thumbnailimg: AssetImage('assets/images/ksh3.jpg')),
+      Membermodel(
+          name: '박정우', thumbnailimg: AssetImage('assets/images/JWPtravel.jpg')),
+      Membermodel(
+          name: '박채은', thumbnailimg: AssetImage('assets/images/pce0.jpg')),
+      Membermodel(
+          name: '황상진', thumbnailimg: AssetImage('assets/images/bluebird.png')),
     ];
 
     return Scaffold(
