@@ -8,11 +8,8 @@
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the app.
-
-```bash
-pip install foobar
-```
+Git pull and run to see the working app
+- Highly recommended to download the requirements through pubspec.yaml if a simple run doesn't work. 
 
 ## Usage
 
@@ -48,4 +45,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-[MIT]
+[GPLv3]
